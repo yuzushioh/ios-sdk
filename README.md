@@ -81,7 +81,7 @@ Then, run the following command:
 carthage update --platform ios
 ```
 
-Drag `OmiseGo` in the project.
+Drag the built `OmiseGO.framework` into your Xcode project.
 
 ---
 
