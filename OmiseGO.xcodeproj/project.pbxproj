@@ -24,7 +24,6 @@
 		031EA6932071DE8000A34D16 /* EncodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031EA68A2071DE7F00A34D16 /* EncodeTests.swift */; };
 		031EA6942071DE8000A34D16 /* DecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031EA68B2071DE7F00A34D16 /* DecodeTests.swift */; };
 		031EA6952071DE8000A34D16 /* APIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031EA68D2071DE7F00A34D16 /* APIErrorTests.swift */; };
-		031EA6962071DE8000A34D16 /* RequestParametersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031EA68E2071DE7F00A34D16 /* RequestParametersTests.swift */; };
 		031EA6972071DE8000A34D16 /* RequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031EA68F2071DE7F00A34D16 /* RequestBuilderTests.swift */; };
 		031EA6A52071DEC800A34D16 /* SocketDispatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031EA6992071DEC700A34D16 /* SocketDispatcherTests.swift */; };
 		031EA6A62071DEC800A34D16 /* FixtureSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031EA69A2071DEC700A34D16 /* FixtureSocketClient.swift */; };
@@ -153,7 +152,6 @@
 		031EA68A2071DE7F00A34D16 /* EncodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodeTests.swift; sourceTree = "<group>"; };
 		031EA68B2071DE7F00A34D16 /* DecodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecodeTests.swift; sourceTree = "<group>"; };
 		031EA68D2071DE7F00A34D16 /* APIErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIErrorTests.swift; sourceTree = "<group>"; };
-		031EA68E2071DE7F00A34D16 /* RequestParametersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestParametersTests.swift; sourceTree = "<group>"; };
 		031EA68F2071DE7F00A34D16 /* RequestBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilderTests.swift; sourceTree = "<group>"; };
 		031EA6992071DEC700A34D16 /* SocketDispatcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketDispatcherTests.swift; sourceTree = "<group>"; };
 		031EA69A2071DEC700A34D16 /* FixtureSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureSocketClient.swift; sourceTree = "<group>"; };
@@ -337,7 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				031EA68D2071DE7F00A34D16 /* APIErrorTests.swift */,
-				031EA68E2071DE7F00A34D16 /* RequestParametersTests.swift */,
 				031EA68F2071DE7F00A34D16 /* RequestBuilderTests.swift */,
 			);
 			path = APITests;
@@ -837,7 +834,6 @@
 				03C2C07D1FB97F9C00B794AC /* RequestFixtureTest.swift in Sources */,
 				03D793B6204FE1080055D7BC /* ListableTests.swift in Sources */,
 				031EA6972071DE8000A34D16 /* RequestBuilderTests.swift in Sources */,
-				031EA6962071DE8000A34D16 /* RequestParametersTests.swift in Sources */,
 				03D793B8204FE1D90055D7BC /* ListableDummy.swift in Sources */,
 				031EA6A72071DEC800A34D16 /* SocketClientTests.swift in Sources */,
 				031EA6932071DE8000A34D16 /* EncodeTests.swift in Sources */,

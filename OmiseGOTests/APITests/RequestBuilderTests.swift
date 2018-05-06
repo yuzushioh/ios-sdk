@@ -21,8 +21,7 @@ class RequestBuilderTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        let httpRequestParam = RequestParameters(config: self.httpConfig)
-        self.requestBuilder = RequestBuilder(requestParameters: httpRequestParam)
+        self.requestBuilder = RequestBuilder(configuration: httpConfig)
     }
 
     func buildHttpRequestWithParams() {
@@ -79,8 +78,7 @@ class RequestBuilderTests: XCTestCase {
 
     func testBuildWebsocketRequest() {
         do {
-            let socketRequestParam = RequestParameters(config: self.socketConfig)
-            let requestBuilder = RequestBuilder(requestParameters: socketRequestParam)
+            let requestBuilder = RequestBuilder(configuration: socketConfig)
             let urlRequest = try requestBuilder.buildWebsocketRequest()
             XCTAssertEqual(urlRequest.httpMethod, "GET")
             XCTAssertEqual(urlRequest.timeoutInterval, 6.0)
