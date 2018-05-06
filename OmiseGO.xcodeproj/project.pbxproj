@@ -121,6 +121,7 @@
 		03FE64502032C6BF00345281 /* TransactionConsumptionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FE644F2032C6BF00345281 /* TransactionConsumptionTest.swift */; };
 		0722AF18088B1D5B0C533D3A /* Pods_OmiseGO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F3D88392040FB15FD17E51 /* Pods_OmiseGO.framework */; };
 		217782191FB5579F002CBCA7 /* AddressFixtureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217782181FB5579F002CBCA7 /* AddressFixtureTests.swift */; };
+		AE8C9FCB209F56C500C616E1 /* Parametrable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8C9FCA209F56C500C616E1 /* Parametrable.swift */; };
 		BF75AB0B369A0CA5C06904BC /* Pods_OmiseGOTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 011BAF3F039E5A5B688B5C4F /* Pods_OmiseGOTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -255,6 +256,7 @@
 		217782181FB5579F002CBCA7 /* AddressFixtureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFixtureTests.swift; sourceTree = "<group>"; };
 		47235654A4C773217A4C91D9 /* Pods-OmiseGO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmiseGO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmiseGO/Pods-OmiseGO.debug.xcconfig"; sourceTree = "<group>"; };
 		6005F67DACE86CA9F979B8D1 /* Pods-OmiseGOTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmiseGOTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmiseGOTests/Pods-OmiseGOTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AE8C9FCA209F56C500C616E1 /* Parametrable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parametrable.swift; sourceTree = "<group>"; };
 		C7DCB672C50C2D40925FAA04 /* Pods-OmiseGOTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmiseGOTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmiseGOTests/Pods-OmiseGOTests.release.xcconfig"; sourceTree = "<group>"; };
 		F8F3D88392040FB15FD17E51 /* Pods_OmiseGO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmiseGO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -423,6 +425,7 @@
 				0361289F20872E7D00E13514 /* Account.swift */,
 				036128A12087315D00E13514 /* Avatar.swift */,
 				03DE596C2089CAEF00E5AE6D /* OMGError.swift */,
+				AE8C9FCA209F56C500C616E1 /* Parametrable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -784,6 +787,7 @@
 				039DA979203FB53F00CCC56A /* Pagination.swift in Sources */,
 				0365DE8520285FE700F7B42E /* TransactionRequest.swift in Sources */,
 				037032B81FBBE6B100DBCDDD /* Request.swift in Sources */,
+				AE8C9FCB209F56C500C616E1 /* Parametrable.swift in Sources */,
 				037032A91FBBE6B100DBCDDD /* Address.swift in Sources */,
 				037032AA1FBBE6B100DBCDDD /* User.swift in Sources */,
 				0355969920453069000E38DA /* TransactionSource.swift in Sources */,
