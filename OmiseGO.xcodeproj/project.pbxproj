@@ -106,7 +106,6 @@
 		03DE596B2089C35500E5AE6D /* AccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE596A2089C35500E5AE6D /* AccountTest.swift */; };
 		03DE596D2089CAEF00E5AE6D /* OMGError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE596C2089CAEF00E5AE6D /* OMGError.swift */; };
 		03DE596F2089CC9E00E5AE6D /* OMGErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE596E2089CC9E00E5AE6D /* OMGErrorTests.swift */; };
-		03E8E6712060BDDE0036CC9E /* RequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E8E6702060BDDE0036CC9E /* RequestParameters.swift */; };
 		03E8E6732060C5320036CC9E /* SocketEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E8E6722060C5320036CC9E /* SocketEvent.swift */; };
 		03F119CC2063A31E00C1772C /* DummySocketEventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F119CB2063A31E00C1772C /* DummySocketEventDelegate.swift */; };
 		03F5C0111F8CB1F80079E073 /* Fixtures in Resources */ = {isa = PBXBuildFile; fileRef = 03F5C0101F8CB19D0079E073 /* Fixtures */; };
@@ -239,7 +238,6 @@
 		03DE596A2089C35500E5AE6D /* AccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTest.swift; sourceTree = "<group>"; };
 		03DE596C2089CAEF00E5AE6D /* OMGError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMGError.swift; sourceTree = "<group>"; };
 		03DE596E2089CC9E00E5AE6D /* OMGErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMGErrorTests.swift; sourceTree = "<group>"; };
-		03E8E6702060BDDE0036CC9E /* RequestParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestParameters.swift; sourceTree = "<group>"; };
 		03E8E6722060C5320036CC9E /* SocketEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketEvent.swift; sourceTree = "<group>"; };
 		03F119CB2063A31E00C1772C /* DummySocketEventDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummySocketEventDelegate.swift; sourceTree = "<group>"; };
 		03F5C0101F8CB19D0079E073 /* Fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fixtures; sourceTree = "<group>"; };
@@ -449,7 +447,6 @@
 				037032A01FBBE6B100DBCDDD /* APIEndpoint.swift */,
 				037032A31FBBE6B100DBCDDD /* Request.swift */,
 				037BAA9A205F701E004A3952 /* RequestBuilder.swift */,
-				03E8E6702060BDDE0036CC9E /* RequestParameters.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -802,7 +799,6 @@
 				034BAC112057DDB7005E0CD3 /* SocketObject.swift in Sources */,
 				0377EBB220564ECF0036A9D6 /* SocketPayload.swift in Sources */,
 				0377EB70205228730036A9D6 /* SocketDelegate.swift in Sources */,
-				03E8E6712060BDDE0036CC9E /* RequestParameters.swift in Sources */,
 				037032B21FBBE6B100DBCDDD /* APIError.swift in Sources */,
 				037BAA99205F64CC004A3952 /* SocketDispatcher.swift in Sources */,
 				03FE644C2032A8FE00345281 /* TransactionConsumption.swift in Sources */,

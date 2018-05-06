@@ -29,8 +29,7 @@ public class Request<ResultType: Decodable> {
     }
 
     func start() throws -> Self {
-        let urlRequest = try RequestBuilder.init(requestParameters: RequestParameters(config: self.client.config))
-            .buildHTTPURLRequest(withEndpoint: self.endpoint)
+        let urlRequest = try RequestBuilder(configuration: client.config).buildHTTPURLRequest(withEndpoint: endpoint)
         let dataTask = client.session.dataTask(with: urlRequest, completionHandler: didComplete)
         self.task = dataTask
         dataTask.resume()

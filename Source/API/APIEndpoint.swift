@@ -76,19 +76,4 @@ enum APIEndpoint {
         }
     }
 
-    var additionalHeaders: [String: String]? {
-        switch self {
-        case .transactionRequestConsume(params: let params):
-            return ["Idempotency-Token": params.idempotencyToken]
-        default: return nil
-        }
-    }
-
-    func makeURL(withBaseURL baseURL: String) -> URL? {
-        guard let url = URL(string: baseURL) else {
-            omiseGOWarn("Base url is not a valid URL!")
-            return nil
-        }
-        return url.appendingPathComponent(self.path)
-    }
 }

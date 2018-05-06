@@ -7,50 +7,85 @@
 
 import UIKit
 
-class RequestBuilder {
+final class RequestBuilder {
 
-    private let requestParameters: RequestParameters
+    private let configuration: ClientConfiguration
+    private let authScheme = "OMGClient"
 
-    init(requestParameters: RequestParameters) {
-        self.requestParameters = requestParameters
+    init(configuration: ClientConfiguration) {
+        self.configuration = configuration
     }
 
     func buildHTTPURLRequest(withEndpoint endpoint: APIEndpoint) throws -> URLRequest {
-        guard let requestURL = endpoint.makeURL(withBaseURL: self.requestParameters.baseURL()) else {
-            throw OMGError.configuration(message: "Invalid request")
+        guard let requestURL = URL(string: configuration.baseURL)?.appendingPathComponent(endpoint.path) else {
+            throw OMGError.configuration(message: "Invalid base url")
         }
+
         var request = URLRequest(url: requestURL)
         request.httpMethod = "POST"
         request.cachePolicy = .useProtocolCachePolicy
         request.timeoutInterval = 6.0
-        try self.addRequiredHeaders(toRequest: &request)
-        endpoint.additionalHeaders?.forEach({ (key, value) in
-            request.addValue(value, forHTTPHeaderField: key)
-        })
+
+        try addRequiredHeaders(toRequest: &request)
+
+        // Add extra header when endpoint is transactionRequestConsume.
+        switch endpoint {
+        case .transactionRequestConsume(let parameters):
+            request.addValue(parameters.idempotencyToken, forHTTPHeaderField: "Idempotency-Token")
+        default:
+            break
+        }
 
         switch endpoint.task {
-        case .requestPlain: break
         case .requestParameters(let parameters):
             let payload: Data = try parameters.encodedPayload()
             request.httpBody = payload
             request.addValue(String(payload.count), forHTTPHeaderField: "Content-Length")
+        case .requestPlain:
+            break
         }
+
         return request
     }
 
     func buildWebsocketRequest() throws -> URLRequest {
-        let requestURL = URL(string: self.requestParameters.baseURL())!
-        var request = URLRequest(url: requestURL)
+        guard let url = URL(string: configuration.baseURL) else {
+            throw OMGError.configuration(message: "Invalid base url")
+        }
+
+        var request = URLRequest(url: url)
         request.timeoutInterval = 6.0
-        try self.addRequiredHeaders(toRequest: &request)
+        try addRequiredHeaders(toRequest: &request)
         return request
     }
 
-    private func addRequiredHeaders(toRequest request: inout URLRequest) throws {
-        let auth = try self.requestParameters.encodedAuthorizationHeader()
-        request.addValue(auth, forHTTPHeaderField: "Authorization")
-        request.addValue(self.requestParameters.acceptHeader(), forHTTPHeaderField: "Accept")
-        request.addValue(self.requestParameters.contentTypeHeader(), forHTTPHeaderField: "Content-Type")
+    func encodedAuthorizationHeader() throws -> String {
+        guard let authenticationToken = configuration.authenticationToken else {
+            throw OMGError.configuration(message: "Please provide an authentication token before using the SDK")
+        }
+
+        let keys = "\(configuration.apiKey):\(authenticationToken)"
+        let data = keys.data(using: .utf8, allowLossyConversion: false)
+
+        guard let encodedKey = data?.base64EncodedString() else {
+            throw OMGError.configuration(message: "bad API key or authentication token (encoding failed.)")
+        }
+
+        return "\(authScheme) \(encodedKey)"
     }
 
+    private func contentTypeHeader() -> String {
+        return "application/vnd.omisego.v\(configuration.apiVersion)+json; charset=utf-8"
+    }
+
+    private func acceptHeader() -> String {
+        return "application/vnd.omisego.v\(configuration.apiVersion)+json"
+    }
+
+    private func addRequiredHeaders(toRequest request: inout URLRequest) throws {
+        let auth = try encodedAuthorizationHeader()
+        request.addValue(auth, forHTTPHeaderField: "Authorization")
+        request.addValue(acceptHeader(), forHTTPHeaderField: "Accept")
+        request.addValue(contentTypeHeader(), forHTTPHeaderField: "Content-Type")
+    }
 }
