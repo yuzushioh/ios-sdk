@@ -74,11 +74,11 @@ final class RequestBuilder {
         return "\(authScheme) \(encodedKey)"
     }
 
-    private func contentTypeHeader() -> String {
+    func contentTypeHeader() -> String {
         return "application/vnd.omisego.v\(configuration.apiVersion)+json; charset=utf-8"
     }
 
-    private func acceptHeader() -> String {
+    func acceptHeader() -> String {
         return "application/vnd.omisego.v\(configuration.apiVersion)+json"
     }
 

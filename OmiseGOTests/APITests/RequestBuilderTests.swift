@@ -90,4 +90,26 @@ class RequestBuilderTests: XCTestCase {
         }
     }
 
+    func testEncodeAuthorizationHeaderCorrectly() {
+        XCTAssertEqual(
+            try! self.requestBuilder.encodedAuthorizationHeader(),
+            "OMGClient \("123:123".data(using: .utf8)!.base64EncodedString())"
+        )
+    }
+
+    func testFailToEncodeAuthorizationHeaderIfAuthenticationTokenIsNotSpecified() {
+        var configuration = self.httpConfig
+        configuration.authenticationToken = nil
+        let requestBuilder = RequestBuilder(configuration: configuration)
+        XCTAssertThrowsError(try requestBuilder.encodedAuthorizationHeader())
+    }
+
+    func testReturnCorrectContentTypeHeader() {
+        XCTAssertEqual(self.requestBuilder.contentTypeHeader(), "application/vnd.omisego.v1+json; charset=utf-8")
+    }
+
+    func testReturnCorrectAcceptHeader() {
+        XCTAssertEqual(self.requestBuilder.acceptHeader(), "application/vnd.omisego.v\(self.httpConfig.apiVersion)+json")
+    }
+
 }
