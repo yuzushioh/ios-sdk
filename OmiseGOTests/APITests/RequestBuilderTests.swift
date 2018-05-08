@@ -21,7 +21,7 @@ class RequestBuilderTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        self.requestBuilder = RequestBuilder(configuration: httpConfig)
+        self.requestBuilder = RequestBuilder(configuration: self.httpConfig)
     }
 
     func buildHttpRequestWithParams() {
