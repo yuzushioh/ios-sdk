@@ -28,21 +28,16 @@ final class RequestBuilder {
 
         try addRequiredHeaders(toRequest: &request)
 
-        // Add extra header when endpoint is transactionRequestConsume.
-        switch endpoint {
-        case .transactionRequestConsume(let parameters):
-            request.addValue(parameters.idempotencyToken, forHTTPHeaderField: "Idempotency-Token")
-        default:
-            break
+        // Add idempotencyToken if endpoint's task requires
+        if let token = endpoint.task.idempotencyToken {
+            request.addValue(token, forHTTPHeaderField: "Idempotency-Token")
         }
 
-        switch endpoint.task {
-        case .requestParameters(let parameters):
-            let payload: Data = try parameters.encodedPayload()
+        // Add endpoint's task parameters if necessary
+        if let parameters = endpoint.task.parameters {
+            let payload = try parameters.encodedPayload()
             request.httpBody = payload
             request.addValue(String(payload.count), forHTTPHeaderField: "Content-Length")
-        case .requestPlain:
-            break
         }
 
         return request

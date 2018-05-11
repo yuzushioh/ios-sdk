@@ -27,7 +27,7 @@ class RequestBuilderTests: XCTestCase {
     func buildHttpRequestWithParams() {
         let dummyObject = DummyTestObject(object: "object")
         let endpoint = APIEndpoint.custom(path: "/test",
-                                          task: Task.requestParameters(parameters: dummyObject))
+                                          task: HTTPTask.requestParameters(parameters: dummyObject))
         do {
             let urlRequest = try self.requestBuilder.buildHTTPURLRequest(withEndpoint: endpoint)
             XCTAssertEqual(urlRequest.httpMethod, "POST")
@@ -61,7 +61,7 @@ class RequestBuilderTests: XCTestCase {
     }
 
     func testBuildRequestWithoutParams() {
-        let endpoint = APIEndpoint.custom(path: "/test", task: Task.requestPlain)
+        let endpoint = APIEndpoint.custom(path: "/test", task: HTTPTask.requestPlain)
         do {
             let urlRequest = try self.requestBuilder.buildHTTPURLRequest(withEndpoint: endpoint)
             XCTAssertEqual(urlRequest.httpMethod, "POST")

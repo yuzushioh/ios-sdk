@@ -6,14 +6,7 @@
 //  Copyright © 2017-2018 Omise Go Pte. Ltd. All rights reserved.
 //
 
-/// Represents an HTTP task.
-enum Task {
-    /// A request with no additional data.
-    case requestPlain
-    /// A requests body set with encoded parameters.
-    case requestParameters(parameters: Parametrable)
-}
-
+/// Represents an api endpoint.
 enum APIEndpoint {
 
     case getCurrentUser
@@ -26,7 +19,7 @@ enum APIEndpoint {
     case transactionConsumptionApprove(params: TransactionConsumptionConfirmationParams)
     case transactionConsumptionReject(params: TransactionConsumptionConfirmationParams)
     case logout
-    case custom(path: String, task: Task)
+    case custom(path: String, task: HTTPTask)
 
     var path: String {
         switch self {
@@ -55,7 +48,7 @@ enum APIEndpoint {
         }
     }
 
-    var task: Task {
+    var task: HTTPTask {
         switch self {
         case .getCurrentUser, .getAddresses, .getSettings, .logout: // Send no parameters
             return .requestPlain

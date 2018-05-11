@@ -62,8 +62,14 @@ public struct TransactionConsumptionParams {
 
 }
 
-extension TransactionConsumptionParams: Parametrable {
+extension TransactionConsumptionParams: APIParameters {
+    public func getIdempotencyToken() -> String? {
+        return idempotencyToken
+    }
+}
 
+extension TransactionConsumptionParams {
+    
     private enum CodingKeys: String, CodingKey {
         case transactionRequestId = "transaction_request_id"
         case amount
@@ -88,7 +94,7 @@ extension TransactionConsumptionParams: Parametrable {
 }
 
 /// Represents a structure used to confirm a transaction consumption from its id
-struct TransactionConsumptionConfirmationParams: Parametrable {
+struct TransactionConsumptionConfirmationParams: APIParameters {
 
     let id: String
 
