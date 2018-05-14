@@ -78,7 +78,7 @@ class RequestBuilderTests: XCTestCase {
 
     func testBuildWebsocketRequest() {
         do {
-            let requestBuilder = RequestBuilder(configuration: socketConfig)
+            let requestBuilder = RequestBuilder(configuration: self.socketConfig)
             let urlRequest = try requestBuilder.buildWebsocketRequest()
             XCTAssertEqual(urlRequest.httpMethod, "GET")
             XCTAssertEqual(urlRequest.timeoutInterval, 6.0)

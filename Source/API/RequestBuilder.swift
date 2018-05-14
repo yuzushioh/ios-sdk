@@ -17,7 +17,7 @@ final class RequestBuilder {
     }
 
     func buildHTTPURLRequest(withEndpoint endpoint: APIEndpoint) throws -> URLRequest {
-        guard let requestURL = URL(string: configuration.baseURL)?.appendingPathComponent(endpoint.path) else {
+        guard let requestURL = URL(string: self.configuration.baseURL)?.appendingPathComponent(endpoint.path) else {
             throw OMGError.configuration(message: "Invalid base url")
         }
 
@@ -44,7 +44,7 @@ final class RequestBuilder {
     }
 
     func buildWebsocketRequest() throws -> URLRequest {
-        guard let url = URL(string: configuration.baseURL) else {
+        guard let url = URL(string: self.configuration.baseURL) else {
             throw OMGError.configuration(message: "Invalid base url")
         }
 
@@ -55,26 +55,26 @@ final class RequestBuilder {
     }
 
     func encodedAuthorizationHeader() throws -> String {
-        guard let authenticationToken = configuration.authenticationToken else {
+        guard let authenticationToken = self.configuration.authenticationToken else {
             throw OMGError.configuration(message: "Please provide an authentication token before using the SDK")
         }
 
-        let keys = "\(configuration.apiKey):\(authenticationToken)"
+        let keys = "\(self.configuration.apiKey):\(authenticationToken)"
         let data = keys.data(using: .utf8, allowLossyConversion: false)
 
         guard let encodedKey = data?.base64EncodedString() else {
             throw OMGError.configuration(message: "bad API key or authentication token (encoding failed.)")
         }
 
-        return "\(authScheme) \(encodedKey)"
+        return "\(self.authScheme) \(encodedKey)"
     }
 
     func contentTypeHeader() -> String {
-        return "application/vnd.omisego.v\(configuration.apiVersion)+json; charset=utf-8"
+        return "application/vnd.omisego.v\(self.configuration.apiVersion)+json; charset=utf-8"
     }
 
     func acceptHeader() -> String {
-        return "application/vnd.omisego.v\(configuration.apiVersion)+json"
+        return "application/vnd.omisego.v\(self.configuration.apiVersion)+json"
     }
 
     private func addRequiredHeaders(toRequest request: inout URLRequest) throws {

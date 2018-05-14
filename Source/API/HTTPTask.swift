@@ -46,7 +46,7 @@ enum HTTPTask {
     /// An idempotency token required for task's request
     /// nil if tasks do not require a token
     public var idempotencyToken: String? {
-        return parameters?.getIdempotencyToken()
+        return self.parameters?.getIdempotencyToken()
     }
 
 }

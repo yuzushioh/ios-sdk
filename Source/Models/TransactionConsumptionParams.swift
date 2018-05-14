@@ -64,12 +64,12 @@ public struct TransactionConsumptionParams {
 
 extension TransactionConsumptionParams: APIParameters {
     public func getIdempotencyToken() -> String? {
-        return idempotencyToken
+        return self.idempotencyToken
     }
 }
 
 extension TransactionConsumptionParams {
-    
+
     private enum CodingKeys: String, CodingKey {
         case transactionRequestId = "transaction_request_id"
         case amount
